@@ -4,9 +4,9 @@ Se requiere un ejemplo que utilice los principios repasados en clase.
 
 En este Ejemplo se realizó una calculadora la cual realiza 3 operaciones:
 
-*Operaciones Básicas
-*Porcentajes
-*Cambiar de Base
+* Operaciones Básicas
+* Porcentajes
+* Cambiar de Base
 
 ### Operaciones Básicas
 
