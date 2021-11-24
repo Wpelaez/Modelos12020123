@@ -36,19 +36,19 @@ Se separa la funcionalidad de mostrar los mensajes y de capturar datos tanto de 
 
 La clase operaciones básicas y porcentaje se limitan a el cálculo que requiera el objeto calculadora.
 
-Mensaje se enfoca a mostrar las impresiones en pantalla, y la clase Capturar datos a los diferentes momentos y formas como el sistema necesite una entrada del usuario.
+Mensaje se enfoca a mostrar las impresiones en pantalla, y la clase capturarDatos a los diferentes momentos y formas como el sistema necesite una entrada del usuario.
 
 ### Principio de abierto y Cerrado
 
 La clase calculadora está cerrada al cambio, pero abierta a la extensión podemos ver como esta lista la futura implementación de la opción 3 del menú sin necesidad de modificar los dos menús anteriores
 
-Tenderemos que agregar la opción en el elif y agregar una clase nueva que contenga la funcionalidad de cambiar de base así mismo podremos agregar mensajes nuevos en la clase mensaje para esta funcionalidad
+Tenderemos que agregar la opción en el elif y agregar una clase nueva que contenga la funcionalidad de cambiar de base, así mismo podremos agregar mensajes nuevos en la clase mensaje para esta funcionalidad
 
 ### DRY Dont repeat Yourself
 
-Al crear la clase capturar datos reutilizamos en diferentes oportunidades la funcionalidad de capturar la entrada del usuario así como la de mostrar algunos mensajes en consola.
+Al crear la clase capturarDatos reutilizamos en diferentes oportunidades la funcionalidad de capturar la entrada del usuario y con la clase Mensaje mostrar mensajes repetidos en consola.
 
-Cabe destacar que en la clase operaciones básicas se debió repetir una misma lógica para las tres primeras operaciones a simple vista resultan ser iguales pero en caso de un fututo cambio tendremos que volver a comprender el funcionamiento de este método combinado para modificar la operación deseada es decir, por ejemplo si queremos modificar la funcionalidad de la suma tendríamos que tener cuidado de no dañar la funcionalidad combinada de la resta y la división.
+Cabe destacar que en la clase operaciones básicas se debió repetir una misma lógica para las tres primeras operaciones a simple vista resultan ser iguales pero en caso de un fututo cambio tendremos que volver a comprender el funcionamiento de este método combinado para modificar la operación deseada, es decir, si queremos modificar la funcionalidad de la suma tendríamos que tener cuidado de no dañar la funcionalidad combinada de la resta y la multiplicacion e incluso la division.
 
 # Presentado por:
 
