@@ -52,7 +52,7 @@ Cabe destacar que en la clase operaciones básicas se debió repetir una misma l
 
 ## Diagrama UML
 
-    ![image info](https://raw.githubusercontent.com/Wpelaez/Modelos12020123/master/calculadoraPrincipios/pictures/Diagrama1.png)
+![image info](https://raw.githubusercontent.com/Wpelaez/Modelos12020123/master/calculadoraPrincipios/pictures/Diagrama1.png)
 
 # Presentado por:
 
