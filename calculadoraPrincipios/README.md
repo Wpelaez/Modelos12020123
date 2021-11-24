@@ -50,6 +50,10 @@ Al crear la clase capturarDatos reutilizamos en diferentes oportunidades la func
 
 Cabe destacar que en la clase operaciones básicas se debió repetir una misma lógica para las tres primeras operaciones, en caso de no hacerlo, en caso de un fututo cambio tendremos que volver a comprender el funcionamiento de este método combinado para modificar la operación deseada, es decir, si queremos modificar la funcionalidad de la suma tendríamos que tener cuidado de no dañar la funcionalidad combinada de la resta y la multiplicacion e incluso la division.
 
+## Diagrama UML
+
+    ![Tux, Diagrama](/Diagrama1.jpeg)
+
 # Presentado por:
 
 * Willmar Fabian Pelaez - 20182020123
