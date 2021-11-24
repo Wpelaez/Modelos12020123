@@ -24,6 +24,10 @@ En esta sección la calculadora realiza tres operaciones relacionadas con los po
 
 * Cálculo de porcentaje: el usuario digita el número y porcentaje y el programa mostrara el porcentaje de numero ingresado.
 
+### Cambiar Base
+
+Aun no realizado
+
 ## Principios Utilizados
 
 ### Principio de Responsabilidad Única.
