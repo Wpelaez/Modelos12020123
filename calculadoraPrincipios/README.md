@@ -36,7 +36,7 @@ Se separa la funcionalidad de mostrar los mensajes y de capturar datos tanto de 
 
 La clase operaciones básicas y porcentaje se limitan a el cálculo que requiera el objeto calculadora.
 
-Mensaje a mostrar las impresiones en pantalla y capturar datos a los diferentes momentos y formas como el sistema necesite una entrada del usuario.
+Mensaje se enfoca a mostrar las impresiones en pantalla, y la clase Capturar datos a los diferentes momentos y formas como el sistema necesite una entrada del usuario.
 
 ### Principio de abierto y Cerrado
 
