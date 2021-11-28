@@ -1,14 +1,23 @@
 from capturarDatos import capturarDatos
-from mensajes import mensajes
+from mensajesOBasicas import mensajesOBasicas
+
 
 class operacionesBasicas():
 
     capturarDatos = capturarDatos()
-    mensajes = mensajes()
+    mensajes = mensajesOBasicas()
 
     def __init__(self):
-        pass
-
+        self.mensajes.opcionesOperacionesBasicas()
+        opcionBasicas = self.capturarDatos.seleccionarMenu()
+        if opcionBasicas == "1":
+            self.suma()
+        if opcionBasicas == "2":
+            self.resta()
+        if opcionBasicas == "3":
+            self.multiplicacion()
+        if opcionBasicas == "4":
+            self.division()
 
     def suma(self):
         self.mensajes.mostarPrimerMensajeOperacion("Suma")

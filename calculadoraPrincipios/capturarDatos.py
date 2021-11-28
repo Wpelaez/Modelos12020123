@@ -1,4 +1,3 @@
-
 class capturarDatos():
 
     def __init__(self):

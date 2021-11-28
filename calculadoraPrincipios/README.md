@@ -42,7 +42,7 @@ Mensaje se enfoca a mostrar las impresiones en pantalla, y la clase capturarDato
 
 La clase calculadora está cerrada al cambio, pero abierta a la extensión podemos ver como esta lista la futura implementación de la opción 3 del menú sin necesidad de modificar los dos menús anteriores
 
-Tenderemos que agregar la opción en el elif y agregar una clase nueva que contenga la funcionalidad de cambiar de base, así mismo podremos agregar mensajes nuevos en la clase mensaje para esta funcionalidad
+Para agregarla Tendremos que agregar la opción en el elif y agregar una clase nueva que contenga la funcionalidad de cambiar de base, así mismo debemos crear una nueva clase de mensajes para la operacion cambiar base.
 
 ### DRY Dont repeat Yourself
 
@@ -52,7 +52,11 @@ Cabe destacar que en la clase operaciones básicas se debió repetir una misma l
 
 ## Diagrama UML
 
-![image info](./pictures/Diagrama1.png)
+![image info](./pictures/Diagrama1_b.png)
+
+## Actualizacion
+
+Se separaron las clases de mensaje debido a que esta misma tenía conocimiento de algunas funciones de otras clases, también se simplifico la clase calculadora las opciones de los menús de cada módulo ahora está a cargo de la clase especifica es decir los submenús de las operaciones están a cargo de sus respectivas clases.
 
 # Presentado por:
 

@@ -1,13 +1,21 @@
 from capturarDatos import capturarDatos
-from mensajes import mensajes
+from mensajesPorcentaje import mensajesPorcentaje
+
 
 class porcentaje():
 
     capturarDatos = capturarDatos()
-    mensajes = mensajes()
+    mensajes = mensajesPorcentaje()
 
     def __init__(self):
-        pass
+        self.mensajes.mostrarOpcionesPorcentaje()
+        opcionPorcentaje = self.capturarDatos.seleccionarMenu()
+        if opcionPorcentaje == "1":
+            self.sumarPorcentaje()
+        if opcionPorcentaje == "2":
+            self.restarPorcentaje()
+        if opcionPorcentaje == "3":
+            self.calcularPorcentaje()
 
     def sumarPorcentaje(self):
         self.mensajes.mostarPrimerMensajeOperacion("Sumar Porcentaje")
