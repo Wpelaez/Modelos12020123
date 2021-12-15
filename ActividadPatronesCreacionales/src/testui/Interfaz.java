@@ -61,6 +61,7 @@ public class Interfaz implements ActionListener{
         ventanaPrincipal.setSize(1000, 850);
         ventanaPrincipal.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         ventanaPrincipal.setResizable(false);
+        ventanaPrincipal.setLocationRelativeTo(null);
     }
     
     private void crearPanelPrincipal(){
