@@ -1,8 +1,8 @@
 # Ejercicio Patrones Creacionales
 
-Se requiere un ejemplo que algunos de los patrones creacionales
+Se requiere un ejemplo que use algunos de los patrones creacionales
 
-Consiste en armar personajes a partir del tipo, el programa se encarga de entregarle las partes al cliente atravez de una fabrica.
+Consiste en armar personajes de un tipo seleccionado y las veces que lo requiera el usuario.
 
 ## Patrones Utilizados
 
