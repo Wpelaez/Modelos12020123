@@ -13,7 +13,7 @@ Consiste en armar personajes de un tipo seleccionado y las veces que lo requiera
 
 Al momento de crear una fabrica abstracta que le entrega al cliente las partes correctas a partir del tipo que selecciona.
 
-###
+### Prototype
 
 Al clonar el objeto creado en el cliente para mandarlo a la interfaz grafica para que cada objeto se dibujara las veces solicitadas.
 
