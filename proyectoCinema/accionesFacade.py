@@ -452,6 +452,8 @@ class accionesFacade():
             total += factura[1]
         return total
 
+### Presentado por Willmar Pelaez - 20182020123
+
     def obtenerTotalesFacturaYear(self, year, tipoVenta):
         totales = []
         for mes in range(1, 13, 1):

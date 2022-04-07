@@ -1,4 +1,4 @@
-## REALIZADO POR WILLMAR PELAEZ - 20182020132
+## Presentado por Willmar Pelaez - 20182020123
 from flask import Flask, render_template, url_for, request, redirect, flash
 from accionesFacade import accionesFacade
 from servicioPago import servicioPago
