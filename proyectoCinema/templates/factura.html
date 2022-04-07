@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link
+    rel="stylesheet"
+    href="{{ url_for('static', filename='factura.css') }}"
+    />
+    <title>Factura</title>
+</head>
+<body>
+    <div class="topnav">
+        <a href="/">Volver Inicio</a>
+    </div>
+    <center>
+        <h1>Factura</h1>
+    </center>
+    <div class="contenedorPrincipal">
+        <div class="factura">
+            <p><b>Numero: </b>{{ numeroFactura }}</p>
+            <p>{{ cliente[1] }} {{ cliente[2] }}</p>
+            <p>Telefono: {{ cliente[3] }}</p>
+            <p>Tipo De Pago: {{ datosFactura[4] }}</p>
+            <p>Fecha: {{ datosFactura[7] }}</p>
+            <h3>Articulos</h3>
+            <ul>
+                {% for articulo in articulos %}
+                    <li>
+                        {% if articulo.get("entidad") == "silla" %}
+                            <h3>Silla: </h3>
+                            <span> Silla: {{ articulo.get("datos")[0] }} </span>
+                            <span>{{ articulo.get("datos")[1] }} </span>
+                            <p>Fecha: {{ articulo.get("datos")[2] }} </p>
+                            <span>Sala: {{ articulo.get("datos")[3] }}</span>
+                            <span>Multiplex: {{ articulo.get("datos")[5] }} {{ articulo.get("datos")[6] }}</span>
+                            <span>Pelicula: {{ articulo.get("datos")[4] }}</span>
+                            <span>Cantidad: 1</span>
+                            <p><b>Precio Venta:</b> {{ articulo.get("datos")[7] }}</p>
+                        {% elif articulo.get("entidad") == "snack" %}
+                            <h3>Snack: </h3>
+                            <p>Tipo: {{ articulo.get("datos")[7] }}</p>
+                            <span> {{ articulo.get("datos")[1] }}</span>
+                            <p>Cantidad: {{ articulo.get("cantidad") }}</p>
+                            <p><b>Precio Venta:</b> {{ articulo.get("precioVenta") }}</p>
+                        {% endif %}
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+        <h2>TOTAL: {{ datosFactura[1] }}</h2>
+    </div>
+    <center>
+        <div style="margin-top: 1%;">
+            <form action="/calificar" method="post">
+                <input type="hidden" name="numFactura" value="{{ numeroFactura }}">
+                {% if calificacionServicio.get("existe") %}
+                    <input type="submit" value="Modificar Calificacion Servicio" class="btnDisponibilidad">
+                {% else %}
+                    <input type="submit" value="Agregar Calificacion Servicio" class="btnDisponibilidad">
+                {% endif %}
+            </form>
+        </div>
+    </center>
+</body>
+<!-- ## REALIZADO POR WILLMAR PELAEZ - 20182020132 -->
+</html>

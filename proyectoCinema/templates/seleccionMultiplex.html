@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link
+    rel="stylesheet"
+    href="{{ url_for('static', filename='estiloIndex.css') }}"
+    />
+    <title>Cine Jungla - Multiplex</title>
+</head>
+<body>
+    <div class="topnav">
+        <a href="/">Volver Inicio</a>
+    </div>
+    <div>
+        <center>
+            <h1>Seleccione El Multiplex</h1>
+        </center>
+        <div class="grilla">
+            {% for multi in multiplex %}
+                <div class="elementoGrilla" style="outline: solid; width: 500px; height: 650px; text-align: center;">
+                    <div style="outline: solid; height: 550px; overflow: auto; text-align: center; padding-left: 1%; padding-right: 1%">
+                        <h4>{{ multi[1] }}</h4>
+                        <img src="{{ url_for('static', filename=''+ multi[4] ) }}" alt="Foto"
+                                style="width:450px;height:300px" >
+                        <p>
+                            <b>Direccion:</b> {{ multi[3] }} 
+                        </p>
+                        <p>
+                            <b>Telefono: </b>{{ multi[2] }}
+                        </p>
+                        <p>
+                            <b>Ciudad:</b> {{ multi[5] }} 
+                        </p>
+                        <p>
+                            <b>Pais: </b> {{ multi[6] }}
+                        </p>
+                    </div>
+                    <a href="/Presentacion/{{ idPelicula }}/{{ multi[0] }}" class="btnDisponibilidad">
+                        Ver Horarios
+                    </a>
+                </div>
+            {% endfor %}
+        </div>
+    </div>    
+</body>
+</html>

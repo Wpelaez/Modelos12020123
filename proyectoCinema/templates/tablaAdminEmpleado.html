@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link
+    rel="stylesheet"
+    href="{{ url_for('static', filename='estiloTablaAdmin.css') }}"
+    />
+    <title>Tabla Admin</title>
+</head>
+<body>
+    <div class="topnav">
+        <a href="/admin">Volver Inicio</a>
+    </div>
+    <center>
+        <h1>
+            Resultado
+        </h1>
+    </center>
+    <div>
+        <table>
+            <thead>
+                <th>Id</th>
+                <th>Nombre</th>
+                <th>Apellido</th>
+                <th>Salario</th>
+                <th>Telefono</th>
+                <th>Cedula</th>
+                <th>Fecha Inicio Contrato</th>
+                <th>Rol</th>
+                <th>Multiplex</th>
+            </thead>
+            <tbody>
+                {% for empleado in empleados %}
+                <tr>
+                    <td>{{ empleado[0] }}</td>
+                    <td>{{ empleado[1] }}</td>
+                    <td>{{ empleado[2] }}</td>
+                    <td>{{ empleado[3] }}</td>
+                    <td>{{ empleado[4] }}</td>
+                    <td>{{ empleado[5] }}</td>
+                    <td>{{ empleado[6] }}</td>
+                    <td>{{ empleado[7] }}</td>
+                    <td>{{ empleado[8] }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

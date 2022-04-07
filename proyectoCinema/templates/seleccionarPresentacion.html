@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link
+    rel="stylesheet"
+    href="{{ url_for('static', filename='estiloIndex.css') }}"
+    />
+    <title>Seleccionar Presentacion</title>
+</head>
+<body>
+    <div class="topnav">
+        <a href="/">Volver Inicio</a>
+    </div>
+    <center>
+        <h1>Seleccione El Horario</h1>
+        <div style="background-color: #2196F3;">
+            <div class="elementoGrilla" style="outline: solid; width: 500px; height: 580px; text-align: center;">
+                <div style="outline: solid; height: 550px; overflow: auto; text-align: center; padding-left: 1%; padding-right: 1%">
+                    <h4>{{ multi[1] }}</h4>
+                    <img src="{{ url_for('static', filename=''+ multi[4] ) }}" alt="Foto"
+                            style="width:450px;height:300px" >
+                    <p>
+                        <b>Direccion:</b> {{ multi[3] }} 
+                    </p>
+                    <p>
+                        <b>Telefono: </b>{{ multi[2] }}
+                    </p>
+                    <p>
+                        <b>Ciudad:</b> {{ multi[5] }} 
+                    </p>
+                    <p>
+                        <b>Pais: </b> {{ multi[6] }}
+                    </p>
+                </div>
+            </div>
+        </div>
+    </center>
+    <div class="grilla">
+        {% for presentacion in presentaciones %}    
+            <div class="elementoGrilla" style="outline: solid; width: 500px; height: 180px; text-align: center;">
+                <div style="outline: solid; height: 100px; overflow: auto; text-align: center; padding-left: 1%; padding-right: 1%">
+                    <p>
+                        Sala: {{ presentacion[3] }}
+                    </p>
+                    <p>
+                        Horario: {{ presentacion[1] }}
+                    </p>
+                </div>
+                {% if usuarioEnSesion %}
+                    <a href="/seleccionarSilla/{{ presentacion[0] }}" class="btnDisponibilidad">
+                        Ver Sillas
+                    </a>
+                {% else %}
+                    <a href="/opcionesUsuario/{{ presentacion[0] }}" class="btnDisponibilidad">
+                        Ver Sillas
+                    </a>
+                {% endif %}
+
+            </div>
+        {% endfor %}            
+    </div>
+</body>
+</html>

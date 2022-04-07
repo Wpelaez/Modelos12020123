@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link
+    rel="stylesheet"
+    href="{{ url_for('static', filename='estilocheckout.css') }}"
+    />
+    <title>Checkout</title>
+</head>
+<body>
+    <div class="topnav">
+        <a href="/">Volver Inicio</a>
+    </div>
+    <center>
+        <h1>Checkout</h1>
+    </center>
+
+    <div class = "contenedorPrincipal" style="text-align: center;">
+        <div>
+            <p><b>Usuario:</b>  {{ datosUser[1] }}</p>
+            <p><b>Total a pagar:</b>  {{ total }}</p>
+            <p><b>Puntos:</b>  {{ datosUser[2] }}</p>
+            <h3>Escoja Tipo de pago: </h3>
+            <form action="{{ request.path }}" method="POST">
+                <input type="radio" name="tipoPago" id="efectivo" value="efectivo" checked>
+                <label for="efectivo">Efectivo</label>
+                <input type="radio" name="tipoPago" id="puntos" value="puntos">
+                <label for="puntos">Puntos</label><br><br>
+                    <input type="submit" value="Pagar" class="btnDisponibilidad">
+            </form>
+        </div>
+    </div>
+</body>
+</html>

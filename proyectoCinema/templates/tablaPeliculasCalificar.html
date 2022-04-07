@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link
+    rel="stylesheet"
+    href="{{ url_for('static', filename='estiloCarritoCompra.css') }}"
+    />
+    <title>Document</title>
+</head>
+<body>
+    <div class="topnav">
+        <a href="/">Volver Inicio</a>
+    </div>
+    <center>
+        <h1>Calificar Pelicula</h1>
+    </center>
+    {% with mensajes = get_flashed_messages() %}
+        {% if mensajes %}
+            {% for mensaje in mensajes %}
+                <div style="color: white; background-color: re;">
+                    <h2>{{ mensaje }}</h2>
+                </div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+    <table>
+        <thead>
+            <th>Nombre</th>
+            <th>Imagen</th>
+            <th>Accion</th>
+        </thead>
+        <tbody>
+            {% for dato in datos %}
+                <tr>
+                    <td>{{ dato[0][1] }}</td>
+                    <td><img class="portadaPelicula" src="{{ url_for('static', filename=''+ dato[0][4]) }}" alt="portada"></td>
+                    <td>
+                        <form action="/calificar" method="post">
+                            <input type="hidden" name="idPelicula" value="{{ dato[0][0] }}">
+                            {% if dato[1].get("existe") %}
+                                <input class="btnDisponibilidad" type="submit" value="Modificar Calificacion">
+                            {% else %}
+                                <input class="btnDisponibilidad" type="submit" value="Calificar">
+                            {% endif %}
+                        </form>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

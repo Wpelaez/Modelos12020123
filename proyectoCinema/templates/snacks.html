@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link
+    rel="stylesheet"
+    href="{{ url_for('static', filename='estiloSnack.css') }}"
+    />
+    <title>Snacks</title>
+</head>
+<body>
+    <div class="topnav">
+        <a href="/">Volver Inicio</a>
+    </div>
+    <center>
+        <h1>Comprar Snacks</h1>
+        <img class="imagenMulti" src="{{ url_for('static', filename=''+ datosMultiplex[4]) }}" alt="">
+        <h2>Multiplex: {{ datosMultiplex[1] }}</h2>
+        <p>Ciudad: {{ datosMultiplex[5] }}</p>
+        <p>Pais: {{ datosMultiplex[6] }}</p>
+    </center>
+    <form action="{{ request.path }}" method="post">
+        <div class="grilla">
+            {% for producto in productosSnackMultiplex %}
+                <div class="elementoGrilla">
+                    <div class="elementoInternoGrilla">
+                        <p>{{ producto[7] }}</p>
+                        <img class="imagenSnack" src="{{ url_for('static', filename=''+producto[4]) }}" alt="producto">
+                        <p>{{ producto[1] }}</p>
+                        <p>Precio: {{ producto[3] }}</p>
+                        <p>Disponibles: {{ producto[2] }}</p>
+                    </div><br>
+                    <label for="{{ producto[0] }}">Cantidad: </label>    
+                    <input 
+                        type="number" 
+                        name="{{ producto[0] }}" 
+                        id="{{ producto[0] }}"
+                        min="0"
+                        max="{{ producto[2] }}"
+                        value="0">
+                </div>
+            {% endfor %}
+        </div>
+        <center>
+            <input type="hidden" name="idMultiplex" value="{{ datosMultiplex[0] }}">
+            <input type="hidden" name="accion" value="llenarCarrito">
+            <input type="submit" value="Comprar" class="btnDisponibilidad">
+        </center>
+    </form>
+
+</body>
+</html>

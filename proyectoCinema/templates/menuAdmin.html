@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link
+    rel="stylesheet"
+    href="{{ url_for('static', filename='estiloAdmin.css') }}"
+    />
+    <title>Document</title>
+</head>
+<body>
+    <div class="topnav">
+        <a href="/admin">Volver Inicio</a>
+    </div>
+    <center>
+        <h1>
+            Menu Administrador
+        </h1>
+    </center>
+    <div class="contenedorPrincipal">
+        <div class="cuadroMenu">
+            <ul>
+                <li>
+                    <form action="/tablaAdminEmpleado" method="post">
+                        <input type="hidden" name="idMultiplex" value="1">
+                        <input type="submit" value="Datos Empleados Titan">
+                    </form>
+                </li>
+                <li>
+                    <form action="/tablaVenta" method="post">
+                        <input type="hidden" name="total" value="total">
+                        <input type="submit" value="Venta Total Por Mes">
+                    </form>
+                </li>
+                <li>
+                    <form action="/tablaVenta" method="post">
+                        <input type="hidden" name="sillasTotales" value="sillasTotales">
+                        <input type="submit" value="Sillas Vendidas Por Mes">
+                    </form>
+                </li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link
+    rel="stylesheet"
+    href="{{ url_for('static', filename='factura.css') }}"
+    />  
+    <title>Confirmar Factura</title>
+</head>
+<body>
+    <div class="topnav">
+        <a href="/">Volver Inicio</a>
+    </div>
+    <center>
+        <h1>Confirmar Factura</h1>
+    </center>
+    {% with mensajes = get_flashed_messages() %}
+        {% if mensajes %}
+            {% for mensaje in mensajes %}
+                <div style="background-color: red; color: white;">
+                    <h2>{{ mensaje }}</h2>
+                </div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+    <div class="contenedorPrincipal">
+        <div class="factura">
+            <h2 style="text-align: center;">Ingrese Numero Factura</h2>
+            <form action="{{ request.path }}" method="POST">
+                <label for="numeroFactura">Numero Factura: </label>
+                <input type="text" name="numeroFactura" id="numeroFactura"><br><br>
+                <center>
+                <input type="submit" value="Confirmar" class="btnDisponibilidad">
+                </center>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

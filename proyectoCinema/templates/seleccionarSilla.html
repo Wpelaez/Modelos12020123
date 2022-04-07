@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link
+    rel="stylesheet"
+    href="{{ url_for('static', filename='estiloPlantillaSilla.css') }}"
+    />
+    <title>Seleccionar Silla</title>
+</head>
+<body>
+    <div class="topnav">
+        <a href="/">Volver Inicio</a>
+    </div>
+    <center>
+        <h1>Seleccione la silla</h1>
+    </center>
+    <form action="{{ request.path }}" method="POST">
+        <div class="grilla">
+                {% for silla in sillas %}
+                    <div class="elementoGrilla" >
+                        {% if silla[2] == 1 %}
+                            <img class="silla" src="{{ url_for('static', filename='sillaPreferencial.png') }}" alt="silla">
+                        {% elif silla[2] == 2 %}
+                            <img class="silla" src="{{ url_for('static', filename='sillaGeneral.png') }}" alt="silla">
+                        {% endif %}
+                        <p>
+                            Silla: {{ silla[0] }} {{ silla[1] }}
+                        </p>
+                        <p>
+                            {{ silla[3] }} ${{ silla[4] }}
+                        </p>
+                        {% if silla[1] == "DISPONIBLE" %}
+                            <input type="checkbox" class="grande" id="{{ silla[0] }}" name="sillasSeleccionadas" value="{{ silla[0] }}">
+                        {% else %}
+                            <input type="checkbox" class="grande" id="{{ silla[0] }}" name="sillasSeleccionadas" value="{{ silla[0] }}" disabled>                        
+                        {% endif %}
+                    </div>
+                {% endfor %}
+        </div>
+        <center>
+            <img src="{{ url_for('static', filename='pantalla.png') }}" alt="pantalla">
+        </center>
+        <div style="text-align: center;">
+            <input type="submit" value="Comprar" class="btnDisponibilidad">      
+        </div>
+    </form>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link
+    rel="stylesheet"
+    href="{{ url_for('static', filename='factura.css') }}"
+    />
+    <title>Calificacion</title>
+</head>
+<body>
+    <div class="topnav">
+        <a href="/">Volver Inicio</a>
+    </div>
+    <center>
+        <h1>Calificar</h1>
+    </center>
+    <div class="contenedorPrincipal">
+        <div class="cuadroOpinion">
+            {% if elementoCalificar == "servicio" %}
+                <h2>Calificar Servicio</h2>
+            {% endif %}
+            <form action="{{ request.path }}" method="post">
+                <div style="margin: 1%;">
+                    {% for cantidad in range(1, 11, 1) %}
+                        {% if (calificacion.get("calificacion") == cantidad) or ((not calificacion.get("existe")) and cantidad == 1)%}
+                            <input type="radio" name="calificacion" id="calificacion" value="{{ cantidad }}" checked>
+                        {% else %}
+                            <input type="radio" name="calificacion" id="calificacion" value="{{ cantidad }}">
+                        {% endif %}
+                    <label for="calificacion">{{ cantidad }}</label>
+                    {% endfor %}
+                </div>
+                <center>
+                <div style="margin: 1%;">
+                    <label for="opinion">Digite Su opinion (No Obligatorio)</label><br>
+                    {% if calificacion.get("opinion") %}
+                        <textarea name="opinion" id="opinion" cols="30" rows="10" maxlength="300">{{ calificacion.opinion }}</textarea>
+                    {% else %}
+                    <textarea name="opinion" id="opinion" cols="30" rows="10" maxlength="300"></textarea>
+                    {% endif %}
+                </div>                       
+                <div style="margin: 1%;">
+                    <input type="hidden" name="accion" value="subirOpinion">
+                    <input type="hidden" name="elementoCalificar" value="{{ elementoCalificar }}">
+                    <input type="hidden" name="idElemento" value="{{ idElemento }}">
+                    <input type="submit" value="Subir" class="btnDisponibilidad">
+                </div>
+                </center>
+            </form>
+        </div>
+    </div>
+</body>
+<!-- ## REALIZADO POR WILLMAR PELAEZ - 20182020132 -->
+</html>

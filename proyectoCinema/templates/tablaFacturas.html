@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link
+    rel="stylesheet"
+    href="{{ url_for('static', filename='estiloCarritoCompra.css') }}"
+    />    
+    <title>Facturas</title>
+</head>
+<body>
+    <div class="topnav">
+        <a href="/">Volver Inicio</a>
+    </div>
+    <table>
+        <center>
+            <h1>
+                Facturas de {{ usuario }}
+            </h1>
+        </center>
+        <thead>
+            <th>Numero</th>
+            <th>Valor</th>
+            <th>Tipo Pago</th>
+            <th>Habilitada Snacks</th>
+            <th>Acciones</th>
+        </thead>
+        <tbody>
+            {% for factura in facturas %}
+                <tr>
+                    <td>{{ factura[0][0] }}</td>
+                    <td>{{ factura[0][1] }}</td>
+                    <td>{{ factura[0][4] }}</td>
+                    {% if factura[1].get("esApta") %}
+                        <td>Valida</td>
+                    {% else %}
+                        <td>{{ factura[1].get("error") }}</td>
+                    {% endif %}
+                    <td>
+                        <a href="/factura/{{ factura[0][0] }}">Ver</a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

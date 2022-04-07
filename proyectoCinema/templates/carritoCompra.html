@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link
+    rel="stylesheet"
+    href="{{ url_for('static', filename='estiloCarritoCompra.css') }}"
+    />
+    <title>Carrito Compra</title>
+</head>
+<body>
+    <div class="topnav">
+        <a href="/">Volver Inicio</a>
+    </div>
+    <center>
+        <h1>Carrito Compra</h1>
+    </center>
+    <div>
+    {% with mensajes = get_flashed_messages() %}
+        {% if mensajes %}
+            {% for mensaje in mensajes %}
+                <div style="background-color: red; color: white;">
+                    <h2>{{ mensaje }}</h2>
+                </div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+        <table>
+            <thead>
+                <th>Articulo</th>
+                <th>Descripcion</th>
+                <th>Cantidad</th>
+                <th>Precio</th>
+                <th>Acciones</th>
+            </thead>
+            <tbody>
+                {% for articulo in datosCarritoCompra %}
+                    <tr>
+                        {% if articulo[0] == "silla" %}
+                            <td>{{ articulo[0] }}</td>
+                            <td>
+                                Silla: {{ articulo[1] }} 
+                                {{ articulo[2] }} 
+                                {{ articulo[3] }}
+                                Sala: {{ articulo[4] }}
+                                Multiplex: {{ articulo[6] }} {{ articulo[7] }}  
+                                {{ articulo[5] }}	
+                            </td>
+                            <td>1</td>
+                            <td>{{ articulo[8] }}</td>
+                            <td>
+                                <form action="{{ request.path }}" method="POST">
+                                    <input type="hidden" name="id" value="{{ articulo[9] }},{{ articulo[1] }}">
+                                    <input type="hidden" name="entidad" value="{{ articulo[0] }}">
+                                    <input type="submit" value="Quitar">
+                                </form>
+                            </td>
+                        {% elif articulo[0] == "snack" %}
+                            <td>{{ articulo[9] }}</td>
+                            <td>{{ articulo[3] }}</td>
+                            <td>{{ articulo[1] }}</td>
+                            <td>Precio: {{ articulo[5]*articulo[1] }}</td>
+                            <td>
+                                <form action="{{ request.path }}" method="post">
+                                    <input type="hidden" name="id" value="{{ articulo[2] }}">
+                                    <input type="hidden" name="entidad"  value="{{ articulo[0] }}">
+                                    <input type="submit" value="Quitar">
+                                </form>
+                            </td>
+                        {% endif %}
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    <center>
+        <h3>Total: ${{ total }}</h3>
+        <a href="/checkout" class="btnDisponibilidad">Checkout</a>
+    </center>
+</body>
+</html>
